@@ -1,6 +1,6 @@
 # Vue & Apollo Quickstart
 
-* [Vue](https://vuejs.org/): Progressive Javascript framework for building user interfaces 
+* [Vue](https://vuejs.org/): Progressive Javascript framework for building user interfaces
 * [Apollo Client](https://github.com/apollographql/apollo-client): Fully-featured, production ready caching GraphQL client
 * [Graphcool](https://www.graph.cool): Flexible backend platform combining GraphQL + AWS Lambda
 
@@ -17,10 +17,9 @@ For more information on how to get started [refer to the full vue-apollo-instagr
 ### 1. Clone example repository
 
 ```sh
-git clone https://github.com/graphcool-examples/vue-graphql.git
-cd vue-graphql/quickstart-with-apollo
+git clone https://github.com/UncleRemus/vue-graphql-apollo.git
+cd vue-graphql-apollo
 ```
-
 
 ### 2. Create Graphcool service with the [Graphcool CLI](https://docs-next.graph.cool/reference/graphcool-cli/overview-zboghez5go)
 
@@ -54,11 +53,9 @@ Replace the current contents in `types.graphql` with the following type definiti
 type Post @model {
   # Required system field
   id: ID! @isUnique # read-only (managed by Graphcool)
-
   # Optional system fields (remove if not needed)
   createdAt: DateTime! # read-only (managed by Graphcool)
   updatedAt: DateTime! # read-only (managed by Graphcool)
-
   description: String!
   imageUrl: String!
 }
@@ -77,14 +74,15 @@ Save the HTTP endpoint for the `Simple API` from the output, you'll need it in t
 
 > **Note**: You can now test your GraphQL API inside a GraphQL playground. Simply type the `graphcool playground` command and start sending queries and mutations.
 
-
 ### 5. Connect the app with your GraphQL API
 
 Paste the `Simple API` endpoint to `./src/main.js` as the `uri` argument in the `createNetworkInterface` call:
 
 ```js
 // replace `__SIMPLE_API_ENDPOINT__` with the endpoint from the previous step
-const networkInterface = createNetworkInterface({ uri: '__SIMPLE_API_ENDPOINT__' })
+const networkInterface = createNetworkInterface({
+  uri: '__SIMPLE_API_ENDPOINT__'
+});
 ```
 
 ### 6. Install dependencies & run locally
